@@ -1,7 +1,7 @@
-package com.mvs.user_manangement_mysql_db.mapper;
+package com.mvs.user_management_mysql_db.mapper;
 
-import com.mvs.user_manangement_mysql_db.dto.UserDto;
-import com.mvs.user_manangement_mysql_db.entity.User;
+import com.mvs.user_management_mysql_db.dto.UserDto;
+import com.mvs.user_management_mysql_db.entity.User;
 
 public class UserMapper {
 

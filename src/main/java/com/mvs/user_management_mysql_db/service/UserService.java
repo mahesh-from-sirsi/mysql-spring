@@ -1,6 +1,6 @@
-package com.mvs.user_manangement_mysql_db.service;
+package com.mvs.user_management_mysql_db.service;
 
-import com.mvs.user_manangement_mysql_db.dto.UserDto;
+import com.mvs.user_management_mysql_db.dto.UserDto;
 import java.util.List;
 
 public interface UserService {

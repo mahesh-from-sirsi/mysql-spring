@@ -1,6 +1,5 @@
-package com.mvs.user_manangement_mysql_db.dto;
+package com.mvs.user_management_mysql_db.dto;
 
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

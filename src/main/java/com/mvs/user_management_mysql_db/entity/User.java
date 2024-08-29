@@ -1,4 +1,4 @@
-package com.mvs.user_manangement_mysql_db.entity;
+package com.mvs.user_management_mysql_db.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

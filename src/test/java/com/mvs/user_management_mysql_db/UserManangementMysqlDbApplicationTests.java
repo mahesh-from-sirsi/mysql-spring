@@ -1,4 +1,4 @@
-package com.mvs.user_manangement_mysql_db;
+package com.mvs.user_management_mysql_db;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

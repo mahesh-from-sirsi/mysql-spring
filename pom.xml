@@ -11,7 +11,7 @@
 	<groupId>com.mvs</groupId>
 	<artifactId>user_manangement_mysql_db</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user_manangement_mysql_db</name>
+	<name>user_management_mysql_db</name>
 	<description>User management with the Mysql Persistence layer</description>
 	<url/>
 	<licenses>
@@ -54,6 +54,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

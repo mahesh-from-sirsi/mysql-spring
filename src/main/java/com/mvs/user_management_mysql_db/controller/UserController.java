@@ -1,8 +1,7 @@
-package com.mvs.user_manangement_mysql_db.controller;
+package com.mvs.user_management_mysql_db.controller;
 
-import com.mvs.user_manangement_mysql_db.dto.UserDto;
-import com.mvs.user_manangement_mysql_db.entity.User;
-import com.mvs.user_manangement_mysql_db.service.UserService;
+import com.mvs.user_management_mysql_db.dto.UserDto;
+import com.mvs.user_management_mysql_db.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
