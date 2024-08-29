@@ -1,15 +1,14 @@
 package com.mvs.user_manangement_mysql_db.service;
 
-import com.mvs.user_manangement_mysql_db.entity.User;
-
+import com.mvs.user_manangement_mysql_db.dto.UserDto;
 import java.util.List;
 
 public interface UserService {
-    User createUser(User user);
-    User getUserById(Long id);
-    List<User> getAllUsers();
+    UserDto createUser(UserDto user);
+    UserDto getUserById(Long id);
+    List<UserDto> getAllUsers();
 
-    User updateUser(User user, Long id);
+    UserDto updateUser(UserDto user, Long id);
 
     void deleteUser(Long id);
 }

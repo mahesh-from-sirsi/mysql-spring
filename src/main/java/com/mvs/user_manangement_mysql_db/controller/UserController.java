@@ -1,5 +1,6 @@
 package com.mvs.user_manangement_mysql_db.controller;
 
+import com.mvs.user_manangement_mysql_db.dto.UserDto;
 import com.mvs.user_manangement_mysql_db.entity.User;
 import com.mvs.user_manangement_mysql_db.service.UserService;
 import lombok.AllArgsConstructor;
@@ -17,27 +18,27 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("add")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User createdUser = userService.createUser(user);
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
+        UserDto createdUser = userService.createUser(userDto);
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }
 
     // http://localhost:8080/api/users/{id}
     @GetMapping("{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+        UserDto user = userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userService.getAllUsers();
+    public ResponseEntity<List<UserDto>> getAllUsers() {
+        List<UserDto> users = userService.getAllUsers();
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<User> updateUser(@RequestBody User user, @PathVariable Long id) {
-        User updated = userService.updateUser(user, id);
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable Long id) {
+        UserDto updated = userService.updateUser(userDto, id);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 

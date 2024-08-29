@@ -1,14 +1,18 @@
 package com.mvs.user_manangement_mysql_db.service.impl;
 
+import com.mvs.user_manangement_mysql_db.dto.UserDto;
 import com.mvs.user_manangement_mysql_db.entity.User;
+import com.mvs.user_manangement_mysql_db.mapper.UserMapper;
 import com.mvs.user_manangement_mysql_db.repository.UserRepository;
 import com.mvs.user_manangement_mysql_db.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -21,29 +25,44 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    public User createUser(User user) {
-        return userRepository.save(user);
+    public UserDto createUser(UserDto userdto) {
+        User userToBeCreated = UserMapper.mapUserDtoToUser(userdto);
+        User userCreated = userRepository.save(userToBeCreated);
+        return UserMapper.mapUserToUserDto(userCreated);
     }
 
     @Override
-    public User getUserById(Long userId) {
-        Optional<User> optionalUser = userRepository.findById(userId);
-        return optionalUser.orElse(null);
+    public UserDto getUserById(Long userId) {
+        Optional<User> optionalUserById = userRepository.findById(userId);
+        User user = optionalUserById.orElse(null);
+        assert user != null;
+        return UserMapper.mapUserToUserDto(user);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserDto> getAllUsers() {
+        List<UserDto> userDtos = new ArrayList<>();
+        List<User> allUsers = userRepository.findAll();
+//        for (User user: allUsers) {
+//            UserDto userDto = UserMapper.mapUserToUserDto(user);
+//            userDtos.add(userDto);
+//        }
+//        return userDtos;
+        return allUsers.stream().map(UserMapper::mapUserToUserDto).toList();
     }
 
+
     @Override
-    public User updateUser(User user, Long id) {
-        User existingUser = getUserById(id);
-        existingUser.setAge(user.getAge());
-        existingUser.setEmail(user.getEmail());
-        existingUser.setFirstName(user.getFirstName());
-        existingUser.setLastName(user.getLastName());
-        return userRepository.save(existingUser);
+    public UserDto updateUser(UserDto userDto, Long id) {\
+        UserDto existingUser = getUserById(id);
+        existingUser.setId(id);
+        existingUser.setFirstName(userDto.getFirstName());
+        existingUser.setLastName(userDto.getLastName());
+        existingUser.setEmail(existingUser.getEmail());
+        existingUser.setAge(existingUser.getAge());
+        User userToBeUpdated = UserMapper.mapUserDtoToUser(existingUser);
+        User updatedUser = userRepository.save(userToBeUpdated);
+        return UserMapper.mapUserToUserDto(updatedUser);
     }
 
     @Override
